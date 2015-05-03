@@ -86,6 +86,12 @@ public class WindowListener implements IWindowListener, IPartListener, IDocument
 	}
 
 	public void partDeactivated(IWorkbenchPart part) {
+		//Ensure that the order of the Episodes are true
+		if (part instanceof ITextEditor) {
+			System.out.println("Do the save");
+			PlatformUI.getWorkbench().saveAllEditors(false);
+			}
+		
 	}
 
 	public void documentAboutToBeChanged(DocumentEvent event) {
